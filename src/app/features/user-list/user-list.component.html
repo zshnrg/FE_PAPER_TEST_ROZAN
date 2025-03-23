@@ -1,0 +1,11 @@
+<main class="main">
+    <div class="container">
+        <h1>{{ title() }}</h1>
+
+        <div class="list-container">
+            @for (user of users(); track user.id) {
+                <p>{{ user.name }}</p>
+            }
+        </div>
+    </div>
+</main>
