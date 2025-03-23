@@ -1,0 +1,100 @@
+<main class="main">
+  <div class="container">
+    <app-button type="accent" [routerLink]="['/']" [leadingIcon]="'arrow_backward'">Back</app-button>
+
+    @if (loading()) {
+
+      <ngx-skeleton-loader [theme]="{ width: '500px', height: '40px' }"></ngx-skeleton-loader>
+
+      <div class="user">
+        <div class="user__detail">
+          <ngx-skeleton-loader [theme]="{ width: '100px', height: '20px' }"></ngx-skeleton-loader>
+          <ngx-skeleton-loader [theme]="{ width: '200px', height: '20px' }"></ngx-skeleton-loader>
+        </div>
+        <div class="user__detail">
+          <ngx-skeleton-loader [theme]="{ width: '100px', height: '20px' }"></ngx-skeleton-loader>
+          <ngx-skeleton-loader [theme]="{ width: '200px', height: '20px' }"></ngx-skeleton-loader>
+        </div>
+        <div class="user__detail">
+          <ngx-skeleton-loader [theme]="{ width: '100px', height: '20px' }"></ngx-skeleton-loader>
+          <ngx-skeleton-loader [theme]="{ width: '200px', height: '20px' }"></ngx-skeleton-loader>
+        </div>
+        <div class="user__detail">
+          <ngx-skeleton-loader [theme]="{ width: '100px', height: '20px' }"></ngx-skeleton-loader>
+          <ngx-skeleton-loader [theme]="{ width: '200px', height: '20px' }"></ngx-skeleton-loader>
+        </div>
+      </div>
+
+      <div class="ac_container">
+        <div class="address">
+          <ngx-skeleton-loader [theme]="{ width: '100px', height: '20px' }"></ngx-skeleton-loader>
+          <div>
+            <ngx-skeleton-loader [theme]="{ width: '100%', height: '200px' }"></ngx-skeleton-loader>
+            <ngx-skeleton-loader [theme]="{ width: '100%', height: '20px' }"></ngx-skeleton-loader>
+          </div>
+        </div>
+
+        <div class="company">
+          <ngx-skeleton-loader [theme]="{ width: '100px', height: '20px' }"></ngx-skeleton-loader>
+          <ngx-skeleton-loader [theme]="{ width: '100%', height: '120px' }"></ngx-skeleton-loader>
+        </div>
+      </div>
+
+    } @else if(user() === null) {
+
+      <span class="error">User not found</span>
+
+    } @else {
+
+    <h1>{{ user()?.name }}</h1>
+
+    <div class="user">
+      <div class="user__detail">
+        <label>Username</label>
+        <span>{{ user()?.username }}</span>
+      </div>
+      <div class="user__detail">
+        <label>Email</label>
+        <span>{{ user()?.email }}</span>
+      </div>
+      <div class="user__detail">
+        <label>Phone</label>
+        <span>{{ user()?.phone }}</span>
+      </div>
+      <div class="user__detail">
+        <label>Website</label>
+        <span>{{ user()?.website }}</span>
+      </div>
+    </div>
+
+    <div class="ac_container">
+      <div class="address">
+        <label>Address</label>
+
+        <div>
+          <app-map 
+            [lat]="user()?.address?.geo?.lat" 
+            [lng]="user()?.address?.geo?.lng"
+            [width]="'100%'" height="200px"
+          ></app-map>
+          <span>{{ user()?.address?.street }}, {{ user()?.address?.suite }}, {{ user()?.address?.city }}, {{ user()?.address?.zipcode }}</span>
+        </div>
+      </div>
+
+      <div class="company">
+        <label>Company</label>
+        <div>
+          <span >{{ user()?.company?.name }}</span>
+          <span>{{ user()?.company?.catchPhrase }}</span>
+          <span>{{ user()?.company?.bs }}</span>
+        </div>
+      </div>
+
+    </div>
+
+    
+    }
+  </div>
+  <div class="gradient__blue"></div>
+  <div class="gradient__green"></div>
+</main>
