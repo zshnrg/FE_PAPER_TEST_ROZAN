@@ -1,0 +1,5 @@
+<div [routerLink]="['/users']" routerLinkActive="router-link-active" class="item">
+    <h2>{{ user().name }}</h2>
+    <p>{{"@" + user().username }}</p>
+    <app-button type="accent" [routerLink]="['/users', user().id]">View</app-button>
+</div>
