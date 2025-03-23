@@ -31,11 +31,15 @@ export class UserDetailComponent implements OnInit {
       .pipe(
         catchError((error) => {
           console.error(error);
-          return of(null);
+          return of({});
         })
       )
       .subscribe((user) => {
-        this.user.set(user);
+        if (Object.keys(user).length === 0) {
+          this.user.set(null);
+        } else {
+          this.user.set(user as User);
+        }
         this.loading.set(false);
       });
   }
