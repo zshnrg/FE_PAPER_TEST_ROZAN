@@ -1,11 +1,24 @@
 <main class="main">
     <div class="container">
-        <h1>{{ title() }}</h1>
+        <h1>User List</h1>
 
-        <div class="list-container">
-            @for (user of users(); track user.id) {
-                <app-user-item [user]="user"/>
-            }
-        </div>
+        @if (loading()) {
+            <ngx-skeleton-loader [theme]="{height: '40px'}"></ngx-skeleton-loader>
+            <ngx-skeleton-loader [theme]="{height: '40px'}"></ngx-skeleton-loader>
+            <ngx-skeleton-loader [theme]="{height: '40px'}"></ngx-skeleton-loader>
+            <ngx-skeleton-loader [theme]="{height: '40px'}"></ngx-skeleton-loader>
+        } @else {
+            <div class="list-container">
+                @if (users().length === 0) {
+                    <div class="empty">No users found</div>
+                } @else {
+                }
+                @for (user of users(); track user.id) {
+                    <app-user-item [user]="user"></app-user-item>
+                }
+            </div>
+        }
     </div>
+    <div class="gradient__blue"></div>
+    <div class="gradient__green"></div>
 </main>
