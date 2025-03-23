@@ -1,0 +1,5 @@
+<button [ngClass]="type()" [disabled]="disabled()">
+    <span *ngIf="leadingIcon()" class="icon material-icons">{{ leadingIcon() }}</span>
+    <ng-content></ng-content>
+    <span *ngIf="trailingIcon()" class="icon material-icons">{{ trailingIcon() }}</span>
+</button>

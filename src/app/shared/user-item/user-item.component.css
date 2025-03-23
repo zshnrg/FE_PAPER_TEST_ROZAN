@@ -1,0 +1,36 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    overflow-x: hidden;
+}
+
+.item:hover {
+    background-color: #fdfdfd;
+    transition: background-color 0.3s;
+}
+
+.item app-button {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translate(0, -50%);
+    transition: right 0.3s ease-in-out
+}
+
+.item:hover app-button {
+    right: 20px;
+}
+
+.item h2 {
+    font-size: large;
+    font-weight: 500;
+}
+
+.item p {
+    font-size: medium;
+    color: var(--secondary-color);
+}
