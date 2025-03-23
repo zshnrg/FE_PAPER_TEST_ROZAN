@@ -4,7 +4,7 @@
 
         <div class="list-container">
             @for (user of users(); track user.id) {
-                <p>{{ user.name }}</p>
+                <app-user-item [user]="user"/>
             }
         </div>
     </div>
