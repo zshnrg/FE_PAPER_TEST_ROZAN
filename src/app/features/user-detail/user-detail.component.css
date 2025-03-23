@@ -67,7 +67,6 @@
 
 .user__detail {
   display: flex;
-  gap: 5px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -111,7 +110,6 @@ label {
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  gap: 5px;
   align-items: stretch;
 }
 
@@ -135,7 +133,6 @@ label {
   flex-direction: column;
   align-items: stretch;
   border-radius: 10px;
-  gap: 5px;
   background-color: #F4F4F4;
   padding: 15px;
 }
