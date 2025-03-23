@@ -12,4 +12,9 @@ export class UserService {
     const url = 'https://jsonplaceholder.typicode.com/users';
     return this.http.get<Array<User>>(url);
   }
+
+  getUser(id: number) {
+    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
+    return this.http.get<User>(url);
+  }
 }
